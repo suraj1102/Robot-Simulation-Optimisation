@@ -4,7 +4,7 @@
 
 Coursework for RO3103 with Prof. Andy Ruina at Plaksha University. MATLAB code and write-ups by Suraj Dayma.
 
-Each folder has its own README with the write-up inlined.
+Each folder has its own README with the write-up linked, PDF to markdown readme tool was made by claude.
 
 | # | Problem | Report |
 | --- | --- | --- |
