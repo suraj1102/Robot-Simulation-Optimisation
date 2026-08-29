@@ -1,0 +1,44 @@
+name: Build READMEs
+
+# Regenerates every README.md (and the rasterised report pages they embed)
+# whenever a report, a MATLAB file, or the generator itself changes.
+on:
+  push:
+    branches: [main]
+    paths:
+      - '**.typ'
+      - '**.pdf'
+      - '**.md'
+      - '**.m'
+      - 'tools/**'
+      - '.github/workflows/build-readmes.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install poppler
+        run: sudo apt-get update && sudo apt-get install -y poppler-utils
+
+      - uses: typst-community/setup-typst@v4
+
+      - name: Generate
+        run: python3 tools/build_readmes.py --compile
+
+      - name: Commit
+        run: |
+          if [ -z "$(git status --porcelain)" ]; then
+            echo "READMEs already up to date."
+            exit 0
+          fi
+          git config user.name  "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git commit -m "chore: regenerate READMEs [skip ci]"
+          git push

@@ -1,0 +1,195 @@
+{
+  "course": {
+    "code": "RO3103",
+    "name": "Robot Motion, Simulation and Optimisation",
+    "instructor": "Prof. Andy Ruina",
+    "university": "Plaksha University",
+    "author": "Suraj Dayma"
+  },
+  "problems": [
+    {
+      "dir": "Tutorial03",
+      "title": "Euler Method Warm-up",
+      "numbers": [],
+      "blurb": "Tutorial scratch work: hand-rolled forward Euler integrators and a first look at how step size drives error.",
+      "entry": "EulerMethod.m"
+    },
+    {
+      "dir": "01-05_ODEs",
+      "title": "Numerical Differentiation and First ODEs",
+      "numbers": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "blurb": "Derivative of sin(x) from the limit definition, the log-log error-vs-h curve and its optimal step size (method error competing with roundoff), then a first hand-written ODE integrator.",
+      "files": {
+        "interestingODE.m": "An inverted pendulum with air resistance, integrated with hand-written Euler."
+      }
+    },
+    {
+      "dir": "05-07_ODEs",
+      "title": "Interesting ODEs and Error Analysis",
+      "numbers": [
+        5,
+        6,
+        7
+      ],
+      "blurb": "A handful of self-chosen ODEs solved with Euler's method - an inverted pendulum with air resistance, the Airy equation - alongside the accompanying error analysis.",
+      "files": {
+        "SpringMass.m": "Planar spring-mass system integrated with ode45."
+      }
+    },
+    {
+      "dir": "07_SpringandMass",
+      "title": "Spring and Mass",
+      "numbers": [
+        7
+      ],
+      "blurb": "Planar mass on a zero-length-capable spring under gravity. Dynamics derived by hand, then simulated and sanity-checked against limiting cases (k = 0 gives projectile flight, l0 = 0 gives elliptical orbits, and so on).",
+      "entry": "SpringMass.m"
+    },
+    {
+      "dir": "08_ballistics",
+      "title": "Ballistics",
+      "numbers": [
+        8
+      ],
+      "blurb": "Projectile flight integrated with ode45 and an event function that stops the solver at ground impact, plus a sweep over launch speed and launch angle.",
+      "entry": "ballistics.m",
+      "files": {
+        "ballistics.m": "Single ballistic trajectory with all parameters set to 1 and a 45 degree launch.",
+        "best_theta.m": "Sweeps the launch angle to find the one that maximises range.",
+        "increasing_v0.m": "Sweeps launch speed and overlays the resulting trajectories."
+      }
+    },
+    {
+      "dir": "09_SpringAndMass",
+      "title": "Two Springs, Two Dampers - Fixed Points",
+      "numbers": [
+        9
+      ],
+      "blurb": "Force balance for a mass held by two springs and two dampers, and a first numerical hunt for the equilibria of that system.",
+      "entry": "TwoSpringAndMass.m",
+      "files": {
+        "fixedPoints.m": "Solves the force balance for the equilibria of the two-spring/two-damper mass."
+      }
+    },
+    {
+      "dir": "10_ODEs",
+      "title": "Linear ODEs and Matrix Exponentials",
+      "numbers": [
+        10
+      ],
+      "blurb": "Solving zdot = Az by hand via eigenvalues and eigenvectors, then checking the analytic solution against a numerical one. Report is handwritten and scanned.",
+      "entry": "solveODE.m",
+      "files": {
+        "zdotAz.m": "zdot = Az for a symmetric A: ode45 against the eigenvector solution.",
+        "myzdotAz.m": "Same comparison for a diagonal A with one stable and one unstable direction."
+      }
+    },
+    {
+      "dir": "11_SpringAndMass",
+      "title": "Two Spring Damper System",
+      "numbers": [
+        11
+      ],
+      "blurb": "Full treatment of the two-spring/two-damper mass with drag: animation, a multi-start search for fixed points with k-means and DBSCAN clustering to de-duplicate them, and linear stability from the numerically perturbed Jacobian.",
+      "entry": "TwoSpringAndMass.m"
+    },
+    {
+      "dir": "12_NumericalOptimization",
+      "title": "Numerical Optimization",
+      "numbers": [
+        12
+      ],
+      "blurb": "Minimising z = (x(x-y))^2 - exp(-x^2-y^2) - cos(x): grid search for the basins, gradient-free refinement, and how the answer converges as the grid is refined.",
+      "entry": "numOpt.m",
+      "files": {
+        "numOpt.m": "Grid-searches the surface for its minimum, then refines with fmincon.",
+        "numPointsVsError.m": "Sweeps the grid resolution and plots how the grid-search error decays."
+      }
+    },
+    {
+      "dir": "13-14_PeriodicSolutions",
+      "title": "Periodic Solutions",
+      "numbers": [
+        13,
+        14
+      ],
+      "blurb": "Finding periodic motions by root-finding on the map from an initial state back to itself after one period, and classifying what is genuinely periodic versus pseudo-periodic. Includes the instructor's reference solution for comparison.",
+      "entry": "PeriodicMotion.m",
+      "files": {
+        "PeriodicMotion.m": "Root-finds initial conditions that return to themselves after one period.",
+        "findFixedPoints.m": "Locates the system's equilibria, used as seeds for the periodic search."
+      }
+    },
+    {
+      "dir": "15-17_ShootingAndColloc",
+      "title": "Shooting and Collocation",
+      "numbers": [
+        15,
+        16,
+        17
+      ],
+      "blurb": "Three ways to hit a boundary condition: an IVP solved with trapezoidal collocation, a boundary value problem solved by shooting, and the same BVP solved by collocation.",
+      "files": {
+        "Q17_Colloc.m": "Q17 - the same boundary value problem solved by trapezoidal collocation."
+      }
+    },
+    {
+      "dir": "18-19_OptimalControl",
+      "title": "Optimal Control",
+      "numbers": [
+        18,
+        19
+      ],
+      "blurb": "Minimum-effort control of xddot = u between fixed boundary states, discretised by collocation and handed to fmincon, plus how the solution error scales as the number of collocation points grows.",
+      "entry": "OptimalControl.m",
+      "files": {
+        "OptimalControl.m": "Trapezoidal collocation of xddot = u, minimised with fmincon, plus the error-vs-N study."
+      }
+    },
+    {
+      "dir": "20_MysteryMatrix",
+      "title": "Mystery Matrix",
+      "numbers": [
+        20
+      ],
+      "blurb": "Recovering an unknown matrix from its action on probe vectors.",
+      "entry": "MysteryMatrix.m",
+      "files": {
+        "MysteryMatrix.m": "Probes the hidden matrix one basis vector at a time to reconstruct it column by column."
+      }
+    },
+    {
+      "dir": "21-23_LanderOptimalControl",
+      "title": "Lander Optimal Control and MPC",
+      "numbers": [
+        21,
+        22,
+        23
+      ],
+      "blurb": "2D point-mass lander with thrust limits and a no-go-below-ground constraint: open-loop optimal trajectories, how feasibility collapses as umax and the time horizon shrink, and a model predictive controller that re-solves the problem each step and rejects disturbances.",
+      "entry": "main.m",
+      "files": {
+        "main.m": "Sets up the lander problem, solves the open-loop optimal trajectory, then runs the MPC study.",
+        "test.m": "Scratch script for poking at the solver."
+      }
+    },
+    {
+      "dir": "24_LanderMinimumTime",
+      "title": "Lander Minimum Time",
+      "numbers": [
+        24
+      ],
+      "blurb": "The same lander, re-posed as a minimum-time problem with the final time as a free optimisation variable - which drives the thrust to the bang-bang solution.",
+      "entry": "main.m",
+      "files": {
+        "main.m": "Minimum-time lander: final time enters the decision vector and fmincon drives it down."
+      }
+    }
+  ]
+}
